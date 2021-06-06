@@ -40,7 +40,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    'Developers', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
@@ -59,7 +59,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    'Developers', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]

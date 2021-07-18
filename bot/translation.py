@@ -16,6 +16,6 @@ You Can't Use Me.I Specially Maded For My Group.
     ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>
     
 <b>➥ Creator</b> : <b><i><a href="https://t.me/alluaddict">HB</a></i></b>
-<b>➥ Channel</b> : <b><i><a href="https://t.me/joinchat/UZzc1UhZLUnvorhW"</a></i></b>
-<b>➥ Group</b> : <b><i><a href="https://t.me/filimsmovie"></a></i></b>
+<b>➥ Channel</b> : <b><i><a href="https://t.me/joinchat/UZzc1UhZLUnvorhW">TELSA BOTS</a></i></b>
+<b>➥ Group</b> : <b><i><a href="https://t.me/filimsmovie">HB GROUP</a></i></b>
 """

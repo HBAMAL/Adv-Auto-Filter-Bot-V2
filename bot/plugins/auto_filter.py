@@ -217,6 +217,15 @@ async def auto_filter(bot, update):
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
+            try:
+            await bot.send_photo(
+                chat_id = update.chat.id,
+                photo="https://telegra.ph/file/de8980eaac9d35f314cbc.jpg",
+                caption=f"👉 <a href='link'> text</a>",
+                reply_markup=reply_markup,
+                parse_mode="html",
+                reply_to_message_id=update.message_id
+            )
 
         except ButtonDataInvalid:
             print(result[0])

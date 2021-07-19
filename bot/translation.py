@@ -5,12 +5,13 @@
 class Translation(object):
     
     START_TEXT = """<b>Hey {}!!
-Am Just A Advance Auto Filter Bot ....😉
-You Can't Use Me.I Specially Maded For My Group.
-🕵‍♂ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 <a href="https://t.me/Telsabots">Telsabots</a></b>"""    
+I Am Just A Advance Auto Filter Bot ....😉
+You Can't Use Me. 
+you can only use me in HB group 
+🕵‍♂ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 <a href="https://t.me/ALLUADDICT">Telsabots</a></b>"""    
     
     HELP_TEXT = """
-**My Owners Can Only See This 😋**
+**My Owner Can Only See This 😋**
 """
     
     ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>

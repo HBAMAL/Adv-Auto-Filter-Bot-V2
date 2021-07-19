@@ -134,7 +134,7 @@ async def auto_filter(bot, update):
          disable_web_page_preview=True,
          reply_to_message_id=update.message_id
         )
-         await asyncio.sleep(10)
+         await asyncio.sleep(5)
          await Send_message.delete()
     
 
@@ -213,7 +213,7 @@ async def auto_filter(bot, update):
             await bot.send_photo(
                 chat_id = update.chat.id,
                 photo="https://telegra.ph/file/1d5776dc7737830c675fe.jpg",
-                caption=f"👉 <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> JOIN THIS CHANNEL FIRST</a>",
+                caption=MFile Name:</i> <code>{query}</code>"   |f"👉 <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> JOIN THIS CHANNEL FIRST</a>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id

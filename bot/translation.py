@@ -8,7 +8,7 @@ class Translation(object):
 I Am Just A Advance Auto Filter Bot ....😉
 You Can't Use Me. 
 you can only use me in HB group 
-🕵‍♂ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 <a href="https://t.me/ALLUADDICT">Telsabots</a></b>"""    
+🕵‍♂ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 <a href="https://t.me/ALLUADDICT">ALLUADDICT</a></b>"""    
     
     HELP_TEXT = """
 **My Owner Can Only See This 😋**

@@ -213,7 +213,7 @@ async def auto_filter(bot, update):
             await bot.send_photo(
                 chat_id = update.chat.id,
                 photo="https://telegra.ph/file/1d5776dc7737830c675fe.jpg",
-                caption=f"Movie You requested: <code>{query}</code> Files Found {(len_results)} 👉 <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> ⚠️ERROR JOIN THIS CHANNEL FIRST⚠️</a>",
+                caption=f"Your request🥰: <code>{query}</code> Files📁 Found🧐 {(len_results)} 👉 <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> ⚠️ERROR JOIN THIS CHANNEL FIRST⚠️</a>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id

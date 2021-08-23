@@ -6,3 +6,4 @@ Requests
 TgCrypto
 dnspython
 psutil
+aiofiles

@@ -129,8 +129,23 @@ async def help(bot, update):
         disable_web_page_preview=true,
         reply_to_message_id=update.message_id
     )
-
-
+@Client.on_message(filters.command(["dev"]) & filters.private, group=1)
+async def dev(bot, update):
+    buttons = [[
+        InlineKeyboardButton('🔒Close 🔒', callback_data='close')
+    ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await bot.send_message(
+        chat_id=update.chat.id,
+        text=Translation.DEV_TEXT,
+        reply_markup=reply_markup,
+        parse_mode="html",
+        disable_web_page_preview=true,
+        reply_to_message_id=update.message_id
+    )
+    
 @Client.on_message(filters.command(["about"]) & filters.private, group=1)
 async def about(bot, update):
     

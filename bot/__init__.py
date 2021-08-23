@@ -17,6 +17,8 @@ API_HASH = os.environ.get("API_HASH")
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
+BOT_OWNER = int(os.environ.get("BOT_OWNER"))
+
 DB_URI = os.environ.get("DB_URI")
 
 USER_SESSION = os.environ.get("USER_SESSION")

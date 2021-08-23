@@ -4,3 +4,5 @@ Pyrogram
 Pymongo
 Requests
 TgCrypto
+dnspython
+psutil

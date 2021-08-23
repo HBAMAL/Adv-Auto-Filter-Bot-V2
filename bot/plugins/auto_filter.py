@@ -64,7 +64,7 @@ async def auto_filter(bot, update):
             file_name = filter.get("file_name")
             file_type = filter.get("file_type")
             file_link = filter.get("file_link")
-            file_size = int(filter.get("file_size", "0"))
+            file_size = "[" + str(filter.get("file_size")//1048576) + "MB] "
 
             # from B to MiB
 
@@ -122,7 +122,6 @@ async def auto_filter(bot, update):
             results.append(
                 [
                     InlineKeyboardButton(file_size + file_name, url=file_link)
-                    InlineKeyboardButton(button_text, url=file_link)
                 ]
             )
         

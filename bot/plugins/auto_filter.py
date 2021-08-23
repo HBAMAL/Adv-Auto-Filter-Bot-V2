@@ -65,9 +65,9 @@ async def auto_filter(bot, update):
             file_type = filter.get("file_type")
             file_link = filter.get("file_link")
             file_size = int(filter.get("file_size", "0"))
-            
+
             # from B to MiB
-            
+
             if file_size < 1024:
                 file_size = f"[{file_size} B]"
             elif file_size < (1024**2):
@@ -76,12 +76,12 @@ async def auto_filter(bot, update):
                 file_size = f"[{str(round(file_size/(1024**2), 2))} MiB] "
             elif file_size < (1024**4):
                 file_size = f"[{str(round(file_size/(1024**3), 2))} GiB] "
-            
-            
+
+
             file_size = "" if file_size == ("[0 B]") else file_size
-            
+
             # add emoji down below inside " " if you want..
-            button_text = f"{file_size} - 🤩{file_name}"
+            button_text = f"{file_size}{file_name}"
             
 
             if file_type == "video":
@@ -118,9 +118,10 @@ async def auto_filter(bot, update):
                 
                 bot_ = FIND.get("bot_details")
                 file_link = f"https://t.me/{bot_.username}?start={unique_id}"
-            
+
             results.append(
                 [
+                    InlineKeyboardButton(file_size + file_name, url=file_link)
                     InlineKeyboardButton(button_text, url=file_link)
                 ]
             )

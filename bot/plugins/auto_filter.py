@@ -122,7 +122,7 @@ async def auto_filter(bot, update):
             results.append(
                 [
                     InlineKeyboardButton(file_size + file_name, url=file_link),
-                    InlineKeyboardButton(file_size + file_name, url=file_link)
+                    InlineKeyboardButton(file_size , url=file_link)
                 ]
             )
         

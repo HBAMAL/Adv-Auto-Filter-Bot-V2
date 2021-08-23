@@ -11,7 +11,7 @@ you can only use me in HB group
 🕵‍♂ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 <a href="https://t.me/ALLUADDICT">ALLUADDICT</a></b>"""    
     
     HELP_TEXT = """
-**My Owner Can Only See This 😋**
+My Owner Can Only See This 😋
 """
     
     ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>

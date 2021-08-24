@@ -41,8 +41,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
         
-        caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
-        
+        caption = ("<code>" + file_name + """</code>\n\n<b>🔰👉കടുതൽ സിനിമകൾക്കും മറ്റു വിവരങ്ങൾക്കുമായി ഞങ്ങളുടെ ഗ്രൂപ്പിൽ ജോയിൻ ചെയ്യൂ\n\n\n🌟༺ ──•◈•─ ─•◈•──༻🌟\n\n➧@TELSABOTS\n➧ @FILIMSMOVIE </b>""")
         if file_type == "document":
         
             await bot.send_document(
@@ -56,13 +55,13 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '🔔Join Main Channel🔔', url="https://t.me/Mo_TECH_YT"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
                                 )
                         ],
                         [
                             InlineKeyboardButton
                                 (
-                                    '🔊 Bot Updates 🔊', url="https://t.me/Mo_TECH_YT"
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
                                 )
                         ]
                     ]
@@ -81,7 +80,13 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '👨‍💼 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 👨‍💼', url="https://t.me/Mo_TECH_YT"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                )
+                        ],
+                        [
+                            InlineKeyboardButton
+                                (
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
                                 )
                         ]
                     ]
@@ -100,7 +105,13 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '👨‍💼 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 👨‍💼', url="https://t.me/Mo_TECH_YT"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                )
+                        ],
+                        [
+                            InlineKeyboardButton
+                                (
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
                                 )
                         ]
                     ]
@@ -113,10 +124,13 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('𝙰𝚋𝚘𝚞𝚝 🚩', callback_data='about'),
-        InlineKeyboardButton('Help 🤔', callback_data="help")
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('🖥️ Tutorial Video 🖥️', url='https://youtu.be/OTqZmADyOjU')
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -134,10 +148,13 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('🏠 𝙷𝚘𝚖𝚎', callback_data='start'),
-        InlineKeyboardButton('𝙰𝚋𝚘𝚞𝚝 🚩', callback_data='about')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('🔐 𝙲𝚕𝚘𝚜𝚎 🔐', callback_data='close')
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -155,13 +172,13 @@ async def help(bot, update):
 async def about(bot, update):
     
     buttons = [[
-        InlineKeyboardButton('👤 Mrk YT👤', url='https://t.me/MRK_YT'),
-        InlineKeyboardButton('Skp KP👤', url='https://t.me/Skp_Kp')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('👤 AlbertEinstein 👤', url='https://t.me/AlbertEinsteinTG')
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('🏠 Home', callback_data='start'),
-        InlineKeyboardButton('Close 🔐', callback_data='close')
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     

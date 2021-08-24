@@ -25,7 +25,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
         
-        caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>" <a href='Url'>text</a> text</b>)        
+        caption = ("<code>" + file_name + """</code>\n<b>Join Share Support</b>""")        
         if file_type == "document":
         
             await bot.send_document(

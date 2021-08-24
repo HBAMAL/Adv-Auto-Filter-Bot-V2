@@ -3,14 +3,10 @@
 import os
 import datetime
 
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
-
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
+from config import FORCE_SUB
 
 
 @Client.on_message(filters.private & filters.incoming)

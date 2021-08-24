@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # (c) @AlbertEinsteinTG
 
+from pyrogram.errors import UserNotParticipant
+
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from bot import Translation # pylint: disable=import-error
@@ -87,6 +89,24 @@ async def start(bot, update):
             print(file_type)
         
         return
+            except UserNotParticipant:
+                ident, file_id = cmd.text.split("_-_-_-_")
+                await bot.send_message(
+                    chat_id=cmd.from_user.id,
+                    text="**Please Join My Updates Channel to use this Bot!**",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                            ],
+                            [
+                                InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{file_id}")
+                            ]
+                        ]
+                    ),
+                    parse_mode="markdown"
+                )
+                return
 
     buttons = [[
         InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),

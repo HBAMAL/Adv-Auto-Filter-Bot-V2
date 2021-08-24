@@ -168,9 +168,23 @@ async def help(bot, update):
     )
 @Client.on_message(filters.command(["source"]) & filters.private, group=1)
 async def source(bot, update):
+    buttons = [[
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
+    ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+    ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
     await bot.send_sticker(
         chat_id=update.chat.id,
         sticker='CAACAgUAAxkBAAPFYSUyZ8rYvkPnNe-fsaegX9DUe-oAAo8AAxgQCD12sH8mfviJrx4E',
+        reply_markup=reply_markup,
+        parse_mode="html",
         reply_to_message_id=update.message_id
     )
 

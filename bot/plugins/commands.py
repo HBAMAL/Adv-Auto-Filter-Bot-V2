@@ -131,19 +131,20 @@ async def start(bot, update):
         InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
-    ]]
+     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await bot.send_message(
+    await bot.send_photo(
         chat_id=update.chat.id,
-        photo="https://telegra.ph/file/de8980eaac9d35f314cbc.jpg"
+        photo="https://telegra.ph/file/cd90aad8b40af60b96aa8.jpg",
         caption=Translation.START_TEXT.format(
                 update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=update.message_id
     )
+
 
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)

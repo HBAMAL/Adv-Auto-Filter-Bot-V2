@@ -120,7 +120,7 @@ async def start(bot, update):
                 )
             )
 
-       else:
+        else:
             print(file_type)
         
         return

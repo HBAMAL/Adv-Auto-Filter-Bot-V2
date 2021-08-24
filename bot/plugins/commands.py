@@ -22,7 +22,7 @@ async def start(bot, update):
                 await bot.send_message(
                 chat_id=update.chat.id,
                 text=Translation.ABOUT_TEXT,
-                disable_web_page_preview=True,
+                disable_web_page_preview=true,
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )

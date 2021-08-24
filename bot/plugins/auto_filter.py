@@ -69,13 +69,13 @@ async def auto_filter(bot, update):
             # from B to MiB
             
             if file_size < 1024:
-                file_size = f"SUBTITLE"
+                file_size = f"[{file_size} B]"
             elif file_size < (1024**2):
-                file_size = f"SUBTITLE"
+                file_size = f"[{str(round(file_size/1024, 2))} KiB] "
             elif file_size < (1024**3):
-                file_size = f"📂{str(round(file_size/(1024**2), 2))} MB "
+                file_size = f"[{str(round(file_size/(1024**2), 2))} MiB] "
             elif file_size < (1024**4):
-                file_size = f"📂{str(round(file_size/(1024**3), 2))} GB "
+                file_size = f"[{str(round(file_size/(1024**3), 2))} GiB] "
             
             
             file_size = "" if file_size == ("[0 B]") else file_size
@@ -118,11 +118,10 @@ async def auto_filter(bot, update):
                 
                 bot_ = FIND.get("bot_details")
                 file_link = f"https://t.me/{bot_.username}?start={unique_id}"
-
+            
             results.append(
                 [
-                    InlineKeyboardButton(file_name, url=file_link),
-                    InlineKeyboardButton(file_size , url=file_link)
+                    InlineKeyboardButton(button_text, url=file_link)
                 ]
             )
         
@@ -130,12 +129,12 @@ async def auto_filter(bot, update):
          Send_message = await bot.send_message(
          chat_id=update.chat.id,
          text="<b>Couldn't Find This Movie☹️ Try Again ഈ സിനിമയുടെ ഒറിജിനൽ പേര് ഗൂഗിളിൽ പോയി കണ്ടെത്തി അതുപോലെ ഇവിടെ കൊടുക്കുക 🥺</b>", 
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="💫CHANNEL💫", url="https://t.me/joinchat/Q9KcXaa9S-Q2NmU9")]]),
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="❕CHANNEL❕", url="https://t.me/joinchat/lNPUvWyEcW5jYjE9")]]),
          parse_mode="html",
          disable_web_page_preview=True,
          reply_to_message_id=update.message_id
         )
-         await asyncio.sleep(5)
+         await asyncio.sleep(10)
          await Send_message.delete()
     
 
@@ -157,13 +156,13 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("➡️Next ⏩", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("Next ⏩", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"💫 Pᴀɢᴇ  1/{len_result if len_result < max_pages else max_pages} 💫", callback_data="ignore")
+            InlineKeyboardButton(f"🔘 Pᴀɢᴇ  1/{len_result if len_result < max_pages else max_pages} 🔘", callback_data="ignore")
         ])
         
         
@@ -211,10 +210,9 @@ async def auto_filter(bot, update):
         reply_markup = InlineKeyboardMarkup(result[0])
 
         try:
-            await bot.send_photo(
+            await bot.send_message(
                 chat_id = update.chat.id,
-                photo="https://telegra.ph/file/1d5776dc7737830c675fe.jpg",
-                caption=f"</b>➧GROUP :-</b> @FILIMSMOVIE\n\n➧REQUESTED MOVIE :- </b>{query}</b>\n\n➧REQUESTED BY :- {update.from_user.mention}\n\n➧</b>RESULTS Found</b>:- {(len_results)}\n\n\n❤️ <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> JOIN OUR CHANNEL & SUPPORT US ❤️</a>",
+                text=f"Found {(len_results)} Results For Your Query: <code>{query}</code>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id

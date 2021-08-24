@@ -8,6 +8,7 @@ from bot import Translation # pylint: disable=import-error
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied, FloodWait, MessageNotModified
 
 
+from bot.database import Database 
 from config import Config
 
 

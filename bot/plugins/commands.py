@@ -40,7 +40,6 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                (
-                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS",
                                     '❤️JOIN❤️', url="https://t.me/TELSABOTS"
                                )
                         ]

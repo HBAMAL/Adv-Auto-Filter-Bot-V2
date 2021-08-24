@@ -183,7 +183,6 @@ async def source(bot, update):
     await bot.send_sticker(
         chat_id=update.chat.id,
         sticker='CAACAgUAAxkBAAPBYSUrrGzEEKDhsQT8n0HEFZpeygsAAp0FAALF8XlUa1LObSUfMnseBA',
-        parse_mode="html",
         reply_to_message_id=update.message_id
     )
 

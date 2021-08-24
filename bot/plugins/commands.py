@@ -40,7 +40,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/alluaddict"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
                                 )
                         ]
                     ]
@@ -59,7 +59,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/alluaddict"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
                                 )
                         ]
                     ]
@@ -78,7 +78,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
                                 )
                         ]
                     ]
@@ -91,10 +91,15 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('🤔 Help', callback_data='help'),
-        InlineKeyboardButton('🤖 About', callback_data='about')
+        InlineKeyboardButton('❤️JOIN❤️', callback_data='help'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', callback_data='about')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')
+        InlineKeyboardButton('Close 🔐', callback_data='close'),
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help')
+    ],[
+        InlineKeyboardButton('Close 🔐', callback_data='close'),
+        InlineKeyboardButton('🤖 HELP', callback_data='help')       
+        
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)

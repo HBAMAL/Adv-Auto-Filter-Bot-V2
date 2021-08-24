@@ -137,7 +137,7 @@ async def start(bot, update):
     
     await bot.send_photo(
         chat_id=update.chat.id,
-        photo="https://telegra.ph/file/cd90aad8b40af60b96aa8.jpg",
+        photo="https://telegra.ph/file/de8980eaac9d35f314cbc.jpg",
         caption=Translation.START_TEXT.format(
                 update.from_user.first_name),
         reply_markup=reply_markup,
@@ -194,7 +194,7 @@ async def about(bot, update):
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
         InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
-        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help')
     ],[
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]

@@ -40,7 +40,8 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS",
+                                    '❤️DEV❤️', url="https://t.me/alluaddict",
                                 )
                         ]
                     ]
@@ -122,7 +123,6 @@ async def help(bot, update):
         InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
         InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('Close 🔐', callback_data='close')
     ]]
     

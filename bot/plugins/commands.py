@@ -9,7 +9,7 @@ from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOc
 
 
 from bot.database import Database # pylint: disable=import-error
-from config import Config
+from config import UPDATE_CHANNEL
 
 db = Database()
 

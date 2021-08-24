@@ -61,7 +61,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
@@ -86,7 +86,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
@@ -111,7 +111,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]

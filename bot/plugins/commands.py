@@ -21,7 +21,7 @@ async def start(bot, update):
             if user.status == "kicked":
                 await bot.send_message(
                 chat_id=update.chat.id,
-                text=Translation.ABOUT_TEXT,
+                text=Translation.START_TEXT,
                 disable_web_page_preview=True,
                 parse_mode="html",
                 reply_to_message_id=update.message_id

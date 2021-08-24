@@ -97,7 +97,7 @@ async def start(bot, update):
         InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')     
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -122,7 +122,7 @@ async def help(bot, update):
         InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
         InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -147,7 +147,7 @@ async def about(bot, update):
         InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
         InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')     
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     

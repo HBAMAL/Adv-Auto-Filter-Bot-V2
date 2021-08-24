@@ -71,7 +71,7 @@ async def auto_filter(bot, update):
             if file_size < 1024:
                 file_size = f"SUBTITLE"
             elif file_size < (1024**2):
-                file_size = f"📂{str(round(file_size/1024, 2))} SUBTITLE "
+                file_size = f"SUBTITLE"
             elif file_size < (1024**3):
                 file_size = f"📂{str(round(file_size/(1024**2), 2))} MB "
             elif file_size < (1024**4):

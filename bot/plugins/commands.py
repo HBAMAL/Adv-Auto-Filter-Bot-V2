@@ -91,15 +91,13 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('❤️JOIN❤️', callback_data='help'),
-        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', callback_data='about')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close'),
-        InlineKeyboardButton('🆘HELP🆘', callback_data='help')
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close'),
-        InlineKeyboardButton('🤖 HELP', callback_data='help')       
-        
+        InlineKeyboardButton('Close 🔐', callback_data='close')     
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -118,9 +116,13 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('Home 🏠', callback_data='start'),
-        InlineKeyboardButton('About🤖', callback_data='about')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('Close 🔐', callback_data='close')
     ]]
     
@@ -140,8 +142,13 @@ async def help(bot, update):
 async def about(bot, update):
     
     buttons = [[
-        InlineKeyboardButton('Home 🤖', callback_data='start'),
-        InlineKeyboardButton('Close 🔐', callback_data='close')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
+    ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('Close 🔐', callback_data='close')     
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     

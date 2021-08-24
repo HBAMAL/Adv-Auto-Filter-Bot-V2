@@ -21,10 +21,10 @@ async def start(bot, update):
             if user.status == "kicked":
                 await bot.send_message(
                 chat_id=update.chat.id,
-                text="Sorry Sir, You are Banned to use me. Contact my [DEV ](https://t.me/alluaddict).",
+                text=Translation.ABOUT_TEXT,
+                disable_web_page_preview=True,
                 parse_mode="html",
-                disable_web_page_preview=true,
-                reply_to_message_id=update.message_id
+               reply_to_message_id=update.message_id
             )
             return 
         except UserNotParticipant:

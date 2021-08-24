@@ -22,8 +22,9 @@ async def start(bot, update):
                 await bot.send_message(
                 chat_id=update.chat.id,
                 text="Sorry Sir, You are Banned to use me. Contact my [DEV ](https://t.me/alluaddict).",
-                parse_mode="markdown",
-                disable_web_page_preview=True
+                parse_mode="html",
+                disable_web_page_preview=true,
+                reply_to_message_id=update.message_id
             )
             return 
         except UserNotParticipant:

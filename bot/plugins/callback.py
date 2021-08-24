@@ -1687,6 +1687,15 @@ async def callback_data(bot, update: CallbackQuery):
     ],[
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
+    
+        reply_markup = InlineKeyboardMarkup(buttons)
+        
+        await update.message.edit_text(
+            Translation.HELP_TEXT,
+            reply_markup=reply_markup,
+            parse_mode="html",
+            disable_web_page_preview=True
+        )
 
 
     elif query_data == "close":

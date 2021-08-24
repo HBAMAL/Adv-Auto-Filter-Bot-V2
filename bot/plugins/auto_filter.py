@@ -69,13 +69,13 @@ async def auto_filter(bot, update):
             # from B to MiB
             
             if file_size < 1024:
-                file_size = f"[{file_size} B]"
+                file_size = f"📂{file_size} B"
             elif file_size < (1024**2):
-                file_size = f"{str(round(file_size/1024, 2))} KB "
+                file_size = f"📂{str(round(file_size/1024, 2))} KB "
             elif file_size < (1024**3):
-                file_size = f"{str(round(file_size/(1024**2), 2))} MB "
+                file_size = f"📂{str(round(file_size/(1024**2), 2))} MB "
             elif file_size < (1024**4):
-                file_size = f"{str(round(file_size/(1024**3), 2))} GB "
+                file_size = f"📂{str(round(file_size/(1024**3), 2))} GB "
             
             
             file_size = "" if file_size == ("[0 B]") else file_size

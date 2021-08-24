@@ -11,6 +11,7 @@ import asyncio
 from bot.database import Database 
 from config import Config
 import aiofiles
+from database import Database
 
 
 db = Database()

@@ -184,7 +184,6 @@ async def source(bot, update):
         chat_id=update.chat.id,
         sticker='CAACAgUAAxkBAAPFYSUyZ8rYvkPnNe-fsaegX9DUe-oAAo8AAxgQCD12sH8mfviJrx4E',
         reply_markup=reply_markup,
-        parse_mode="html",
         reply_to_message_id=update.message_id
     )
 

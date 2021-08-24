@@ -8,6 +8,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 from commands import FORCE_SUB
 
+FORCE_SUB = "telsabots"
+
 
 @Client.on_message(filters.private & filters.incoming)
 async def force_sub(c, m):

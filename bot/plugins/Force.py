@@ -6,7 +6,7 @@ import datetime
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
-from config import FORCE_SUB
+from commands import FORCE_SUB
 
 
 @Client.on_message(filters.private & filters.incoming)
@@ -18,7 +18,7 @@ async def force_sub(c, m):
                 return await m.reply_text('Hai you are kicked from my updates channel. So, you are not able to use me',  quote=True)
 
         except UserNotParticipant:
-            button = [[InlineKeyboardButton('💫Join Updates Channel💫', url=f"https://t.me/{Config.FORCE_SUB}")]]
+            button = [[InlineKeyboardButton('💫Join Updates Channel💫', url=f"https://t.me/{commands.FORCE_SUB}")]]
             markup = InlineKeyboardMarkup(button)
             return await m.reply_text(text="**You Must Join My Updates Channel To Use Me**", parse_mode='markdown', reply_markup=markup, quote=True)
 

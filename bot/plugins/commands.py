@@ -170,7 +170,7 @@ async def help(bot, update):
 async def source(bot, update):
     await bot.send_sticker(
         chat_id=update.chat.id,
-        sticker='AgADMwIAAtbcmFc',
+        sticker='CAACAgUAAxkBAAIr-mElL43KyjA0Y-oczIMN42p0BaVWAAIzAgAC1tyYV6WctoYBmGAHIAQ',
         reply_to_message_id=update.message_id
     )
 

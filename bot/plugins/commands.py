@@ -129,8 +129,9 @@ async def start(bot, cmd):
 			await send_stored_file.reply_text(f"**Here is Sharable Link of this file:** https://telegram.dog/{BOT_USERNAME}?start=TeleRoid14_{file_id}\n\n__To Retrive the Stored File, just open the link!__", disable_web_page_preview=True, quote=True)
 		except Exception as err:
 			await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
+			return
             
-            return
+
 
     try:
         file_uid = update.command[1]

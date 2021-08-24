@@ -214,7 +214,7 @@ async def auto_filter(bot, update):
             await bot.send_photo(
                 chat_id = update.chat.id,
                 photo="https://telegra.ph/file/1d5776dc7737830c675fe.jpg",
-                caption=f"</b>GROUP :-</b> @FILIMSMOVIE\n\nREQUESTED MOVIE :- </b>{query}</b>\n\nREQUESTED BY :- {update.from_user.mention}\n\n</b>RESULTS Found</b>:- {(len_results)}\n\n\n❤️ <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> JOIN OUR CHANNEL & SUPPORT US ❤️</a>",
+                caption=f"</b>GROUP :-</b> @FILIMSMOVIE\nREQUESTED MOVIE :- </b>{query}</b>\nREQUESTED BY :- {update.from_user.mention}\n</b>RESULTS Found</b>:- {(len_results)}\n\n\n❤️ <a href='https://t.me/joinchat/UZzc1UhZLUnvorhW'> JOIN OUR CHANNEL & SUPPORT US ❤️</a>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id

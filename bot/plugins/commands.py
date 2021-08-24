@@ -24,7 +24,7 @@ async def start(bot, update):
                 text=Translation.ABOUT_TEXT,
                 disable_web_page_preview=True,
                 parse_mode="html",
-               reply_to_message_id=update.message_id
+                reply_to_message_id=update.message_id
             )
             return 
         except UserNotParticipant:

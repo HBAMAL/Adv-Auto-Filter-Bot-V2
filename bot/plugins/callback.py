@@ -1600,10 +1600,8 @@ async def cb_about(bot, update: CallbackQuery):
 
     text=f"<i><u>Bot's Status</u></i>\n"
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
-    text+=f"\n<b><i>Bot Funtion:</i></b> <i> KAJAL Auto Filter BOT</i>\n"
+    text+=f"\n<b><i>Bot Funtion:</i></b> <i> HB Auto Filter BOT</i>\n"
     text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/CrazyBotszGrp">@filimsmovie</a>\n"""
-    text+="""\n<b><i>Source Code:</i></b> <a href="https://github.com/AlbertEinsteinTG/Adv-Filter-Bot-V2">Source</a>"""
-
     buttons = [
         [
             InlineKeyboardButton
@@ -1639,10 +1637,13 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-        InlineKeyboardButton('🆘 Help🆘', callback_data='help'),
-        InlineKeyboardButton('📰 About📰', callback_data='about')
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('🔒Close 🔒', callback_data='close')
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1657,11 +1658,14 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton('🏡Home🏡', callback_data='start'),
-            InlineKeyboardButton('📰About 📰', callback_data='about')
-        ],[
-            InlineKeyboardButton('🔒Close 🔒', callback_data='close')
-        ]]
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
+    ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+    ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -1675,17 +1679,14 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
-            InlineKeyboardButton('Home 🏠', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
-        
-        await update.message.edit_text(
-            Translation.ABOUT_TEXT,
-            reply_markup=reply_markup,
-            parse_mode="html"
-        )
+        InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
+    ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
+    ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
+    ]]
 
 
     elif query_data == "close":

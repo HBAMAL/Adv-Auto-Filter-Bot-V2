@@ -28,7 +28,7 @@ async def start(bot, update):
             )
             return 
         except UserNotParticipant:
-            await bot.edit_message_text(chat_id=update.chat.id, text=f"**You Must Join My Updates Channel To Use Me**", message_id=msg.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="😎 Join Channel 😎", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]]))
+            await bot.edit_message_text(chat_id=update.chat.id, text=f"**You Must Join My Updates Channel To Use Me**", message_id=msg.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=f"😎 Join Channel 😎", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]]))
             return
         except Exception:
             await bot.edit_message_text(chat_id=update.chat.id, text=f"Some Thing Went Wrong.", message_id=fmsg.message_id)

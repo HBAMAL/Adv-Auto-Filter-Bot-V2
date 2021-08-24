@@ -20,6 +20,13 @@ async def start(bot, update):
         try:
             user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
             if user.status == "kicked":
+                await bot.send_message(
+                chat_id=update.chat.id,
+                text="Sorry Sir, You are Banned to use me. Contact my [DEV ](https://t.me/alluaddict).",
+                parse_mode="markdown",
+                disable_web_page_preview=True
+            )
+            return 
         except UserNotParticipant:
             await bot.edit_message_text(chat_id=update.chat.id, text=f"**You Must Join My Updates Channel To Use Me**", message_id=fmsg.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="😎 Join Channel 😎", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]]))
             return

@@ -15,7 +15,7 @@ from bot.database import Database # pylint: disable=import-error
 
 db = Database()
 
-@Client.on_message(filters.private & filters.incoming)
+@Client.on_message(filters.private & filters.incoming, filters.command(["start"]))
 async def force_sub(c, m):
     if Config.FORCE_SUB:
         try:

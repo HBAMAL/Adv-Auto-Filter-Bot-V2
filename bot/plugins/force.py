@@ -13,23 +13,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 
-from bot.database import Database # pylint: disable=import-error
-from bot.bot import Bot # pylint: disable=import-error
-
-
-FIND = {}
-INVITE_LINK = {}
-ACTIVE_CHATS = {}
-db = Database()
-
-
-if filters:
-        for filter in filters: # iterating through each files
-            file_name = filter.get("file_name")
-            file_type = filter.get("file_type")
-            file_link = filter.get("file_link")
-            file_size = int(filter.get("file_size", "0"))
-
 
 @Client.on_message(filters.private & filters.incoming)
 async def force_sub(c, m):
@@ -40,8 +23,7 @@ async def force_sub(c, m):
                 return await m.reply_text('Hai you are kicked from my updates channel. So, you are not able to use me',  quote=True)
 
         except UserNotParticipant:
-            button = [[InlineKeyboardButton('✅Join MY Updates Channel TO US E ME✅', url=file_link)]],
-            url=file_link
+            button = [[InlineKeyboardButton('✅Join MY Updates Channel TO US E ME✅', url=f"https://t.me/{Config.FORCE_SUB}")]]
             markup = InlineKeyboardMarkup(button)
             return await m.reply_text(text="**You Must Join My Updates Channel To Use Me**", parse_mode='markdown', reply_markup=markup, quote=True)
 

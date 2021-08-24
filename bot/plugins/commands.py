@@ -133,7 +133,7 @@ async def help(bot, update):
         text=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
-        disable_web_page_preview=true,
+        disable_web_page_preview=True,
         reply_to_message_id=update.message_id
     )
 

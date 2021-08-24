@@ -157,7 +157,6 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("➡️Next ⏩", callback_data=f"navigate(0|next|{query})"),
                     InlineKeyboardButton("➡️Next ⏩", callback_data= await query.answer("You are using this for one of my old message, please send the request again.",show_alert=True)
                 ]
             )

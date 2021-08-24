@@ -6,13 +6,23 @@ from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from bot import Translation # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
-
+from config import UPDATE_CHANNEL
 
 
 db = Database()
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
+    if Config.UPDATE_CHANNEL:
+        try:
+            user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
+            if user.status == "kicked":
+        except UserNotParticipant:
+            await bot.edit_message_text(chat_id=update.chat.id, text=f"**You Must Join My Updates Channel To Use Me**", message_id=fmsg.message_id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="😎 Join Channel 😎", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]]))
+            return
+        except Exception:
+            await bot.edit_message_text(chat_id=update.chat.id, text=f"Some Thing Went Wrong.", message_id=fmsg.message_id)
+            return
     
     try:
         file_uid = update.command[1]
@@ -148,6 +158,3 @@ async def about(bot, update):
         parse_mode="html",
         reply_to_message_id=update.message_id
     )
-
-    
-FORCE_SUB = "telsabots"

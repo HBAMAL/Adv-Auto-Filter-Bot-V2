@@ -172,10 +172,7 @@ async def source(bot, update):
         InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
     ],[
-        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
-        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
-    ],[
-        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -193,6 +190,9 @@ async def about(bot, update):
     buttons = [[
         InlineKeyboardButton('🔰CHANNEL🔰', url='t.me/TELSABOTS'),
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='t.me/alluaddict')
+    ],[
+        InlineKeyboardButton('🏡HOME 🏡', callback_data='start'),
+        InlineKeyboardButton('☺️ABOUT☺️', callback_data='about')
     ],[
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')     
     ]]

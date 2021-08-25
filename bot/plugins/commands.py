@@ -10,7 +10,6 @@ from bot import UPDATE_CHANNEL
 
 
 db = Database()
-
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
     update_channel = UPDATE_CHANNEL
@@ -21,6 +20,7 @@ async def start(bot, update):
                await update.reply_text("😔 Sorry Dude, You are **🅱︎🅰︎🅽︎🅽︎🅴︎🅳︎ 🤣🤣🤣**")
                return
         except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
                 text="<b>🥴HEY U STILL DON'T JOINED MY CHANNEL 🤭.\n\n😊 JOIN MY CHANNEL THEN ONLY U CAN USE ME 😊</b>",
                 reply_markup=InlineKeyboardMarkup([
@@ -29,7 +29,7 @@ async def start(bot, update):
             )
             return
         except Exception:
-            await update.reply_text(f"<b>This bot should be the admin on your update channel</b>\n\n<b>💢 ഈ ചാനലിൽ  @{UPDATE_CHANNEL} ബോട്ടിനെ അഡ്മിൻ ആക്. എന്നിട്ട് /start കൊടുക്</b>")
+            await update.reply_text(f"<b>This bot should be the admin on your update channel</b>\n\n<b>💢 ഈ ചാനലിൽ  @{UPDATE_CHANNEL} ബോട്ടിനെ അഡ്മിൻ ആക്. എന്നിട്ട് /start കൊടുക്</b>\n\n<b>🗣️ any Doubt @Mo_Tech_Group</b>")
             return  
     try:
         file_uid = update.command[1]
@@ -42,7 +42,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
         
-        caption = ("<code>" + file_name + """</code>\n\n<b>🔰👉കടുതൽ സിനിമകൾക്കും മറ്റു വിവരങ്ങൾക്കുമായി ഞങ്ങളുടെ ഗ്രൂപ്പിൽ ജോയിൻ ചെയ്യൂ\n\n\n🌟༺ ──•◈•─ ─•◈•──༻🌟\n\n➧@TELSABOTS\n➧ @FILIMSMOVIE </b>""")
+        caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
         
         if file_type == "document":
         
@@ -52,7 +52,7 @@ async def start(bot, update):
                 caption = caption,
                 parse_mode="html",
                 reply_to_message_id=update.message_id,
-               reply_markup=InlineKeyboardMarkup(
+                reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton

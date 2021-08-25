@@ -4,7 +4,7 @@ from bot import Translation # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 
 
-
+from bot import UPDATE_CHANNEL
 
 
 db = Database()

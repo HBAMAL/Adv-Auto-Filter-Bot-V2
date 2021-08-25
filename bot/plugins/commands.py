@@ -56,13 +56,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
-                                )
-                        ],
-                        [
-                            InlineKeyboardButton
-                                (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
+                                    'Developers', url="https://t.me"
                                 )
                         ]
                     ]
@@ -81,13 +75,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
-                                )
-                        ],
-                        [
-                            InlineKeyboardButton
-                                (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
+                                    'Developers', url="https://t.me"
                                 )
                         ]
                     ]
@@ -96,7 +84,7 @@ async def start(bot, update):
             
         elif file_type == "audio":
         
-            await update.bot.send_audio(
+            await bot.send_audio(
                 chat_id=update.chat.id,
                 audio = file_id,
                 caption = caption,
@@ -106,13 +94,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
-                                )
-                        ],
-                        [
-                            InlineKeyboardButton
-                                (
-                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
+                                    'Developers', url="https://t.me"
                                 )
                         ]
                     ]

@@ -1,9 +1,10 @@
 from bot import UPDATE_CHANNEL 
 from pyrogram.errors import UserNotParticipant
+from bot import Translation # pylint: disable=import-error
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from bot import Translation # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
+
 
 
 
@@ -19,7 +20,6 @@ async def start(bot, update):
                await update.reply_text("😔 Sorry Dude, You are **🅱︎🅰︎🅽︎🅽︎🅴︎🅳︎ 🤣🤣🤣**")
                return
         except UserNotParticipant:
-            #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
                 text="<b>🥴HEY U STILL DON'T JOINED MY CHANNEL 🤭.\n\n😊 JOIN MY CHANNEL THEN ONLY U CAN USE ME 😊</b>",
                 reply_markup=InlineKeyboardMarkup([
@@ -42,6 +42,7 @@ async def start(bot, update):
             return
         
         caption = ("<code>" + file_name + """</code>\n\n<b>🔰👉കടുതൽ സിനിമകൾക്കും മറ്റു വിവരങ്ങൾക്കുമായി ഞങ്ങളുടെ ഗ്രൂപ്പിൽ ജോയിൻ ചെയ്യൂ\n\n\n🌟༺ ──•◈•─ ─•◈•──༻🌟\n\n➧@TELSABOTS\n➧ @FILIMSMOVIE </b>""")
+        
         if file_type == "document":
         
             await bot.send_document(
@@ -70,7 +71,7 @@ async def start(bot, update):
 
         elif file_type == "video":
         
-            await update.bot.send_video(
+            await bot.send_video(
                 chat_id=update.chat.id,
                 video = file_id,
                 caption = caption,

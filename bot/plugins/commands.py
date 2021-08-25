@@ -50,18 +50,23 @@ async def start(bot, update):
                 caption = caption,
                 parse_mode="html",
                 reply_to_message_id=update.message_id,
-                reply_markup=InlineKeyboardMarkup(
+               reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                )
+                        ],
+                        [
+                            InlineKeyboardButton
+                                (
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
                 )
             )
-
         elif file_type == "video":
         
             await bot.send_video(
@@ -74,7 +79,13 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                )
+                        ],
+                        [
+                            InlineKeyboardButton
+                                (
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
@@ -93,13 +104,18 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me"
+                                    '❤️JOIN❤️', url="https://t.me/TELSABOTS"
+                                )
+                        ],
+                        [
+                            InlineKeyboardButton
+                                (
+                                    '🧑🏼‍💻DEV🧑🏼‍💻', url="https://t.me/alluaddict"
                                 )
                         ]
                     ]
                 )
             )
-
         else:
             print(file_type)
         

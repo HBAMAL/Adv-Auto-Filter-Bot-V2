@@ -5,7 +5,7 @@ import ffmpeg
 from pytgcalls import GroupCall
 from datetime import datetime
 import os
-from pyrogram import Client, filters, idle
+from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 

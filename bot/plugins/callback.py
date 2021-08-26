@@ -5,13 +5,14 @@ import ffmpeg
 from pytgcalls import GroupCall
 from datetime import datetime
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 
 VOICE_CHATS = {}
 DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
+
 
 from bot import start_uptime, Translation, VERIFY # pylint: disable=import-error
 from bot.plugins.auto_filter import ( # pylint: disable=import-error
@@ -198,49 +199,18 @@ async def join_voice_chat(bot, update):
         group_call = GroupCall(Client, input_filename)
         await group_call.start(chat_id)
     except RuntimeError:
-        await update.reply_text('lel error!')
+        await update.reply('lel error!')
         return
     VOICE_CHATS[chat_id] = group_call
-    await update.reply_text('Joined the Voice Chat ✅')
+    await update.reply('Joined the Voice Chat ✅')
     
-@Client.on_message(filters.command(["play"]), group=2)
-async def play_track(bot, update):
-    if not update.reply_to_message or not update.reply_to_message.audio:
-        return
-    input_filename = os.path.join(
-        Client.workdir, DEFAULT_DOWNLOAD_DIR,
-        'input.raw',
-    )
-    audio = update.reply_to_message.audio
-    audio_original = await update.reply_to_message.download()
-    a = await update.reply('Downloading...')
-    ffmpeg.input(audio_original).output(
-        input_filename,
-        format='s16le',
-        acodec='pcm_s16le',
-        ac=2, ar='48k',
-    ).overwrite_output().run()
-    os.remove(audio_original)
-    if VOICE_CHATS and update.chat.id in VOICE_CHATS:
-        text = f'▶️ Playing **{audio.title}** here by VC BOT...'
-    else:
-        try:
-            group_call = GroupCall(client, input_filename)
-            await group_call.start(update.chat.id)
-        except RuntimeError:
-            await update.reply('Group Call doesnt exist')
-            return
-        VOICE_CHATS[update.chat.id] = group_call
-    await a.edit(f'▶️ Playing **{audio.title}** here by VC BOT...')
-    
-@Client.on_message(filters.command(["pings"]), group=2)
-async def ping(bot, update):
-    start = datetime.now()
-    tauk = await update.reply_text('Pong!')
-    end = datetime.now()
-    m_s = (end - start).microseconds / 1000
-    await tauk.edit(f'**PONG!**\n> `{m_s} ms`')
-    
+@Client.on_message(filters.command(["lvc"]), group=2)
+async def leave_voice_chat(bot, update):
+    chat_id = update.chat.id
+    group_call = VOICE_CHATS[chat_id]
+    await group_call.stop()
+    VOICE_CHATS.pop(chat_id, None)
+    await update.reply('Left Voice Chat ✅')
     
 @Client.on_callback_query(filters.regex(r"settings"), group=2)
 async def cb_settings(bot, update: CallbackQuery):

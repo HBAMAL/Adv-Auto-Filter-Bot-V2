@@ -208,7 +208,7 @@ async def play_track(bot, update):
     if not update.reply_to_message or not update.reply_to_message.audio:
         return
     input_filename = os.path.join(
-        client.workdir, DEFAULT_DOWNLOAD_DIR,
+        Client.workdir, DEFAULT_DOWNLOAD_DIR,
         'input.raw',
     )
     audio = update.reply_to_message.audio

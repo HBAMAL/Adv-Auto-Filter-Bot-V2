@@ -155,7 +155,7 @@ async def start(bot, update):
     )
 
 
-@Client.on_message(filters.command(["ping"]) & filters.private, group=2)
+@Client.on_message(filters.command(["ping"]) & filters.private, group=1)
 async def ping(bot, update):
     start = datetime.now()
     tauk = await update.reply_text('CHECKING...')

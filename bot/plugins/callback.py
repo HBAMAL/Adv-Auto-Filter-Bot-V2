@@ -178,10 +178,10 @@ async def showid(bot, update):
         )   
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):
-    user = await bot.get_users(int(id))
     name = str(user.first_name + (user.last_name or ""))
     username = user.username
     Dcid = user.dc_id
+    
     if update.reply_to_message:
         name = str(update.reply_to_message.from_user.first_name\
                  + (update.reply_to_message.from_user.last_name or ""))

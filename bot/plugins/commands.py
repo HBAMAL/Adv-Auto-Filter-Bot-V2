@@ -159,7 +159,8 @@ async def ping(bot, update):
     m_s = (end - start).microseconds / 1000
     await tauk.edit(f'CURRENT PING\n\n⏳PING : `{m_s} ms`')
     
-username = reply_to_message.from_user.username
+
+username = update.username
 
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):

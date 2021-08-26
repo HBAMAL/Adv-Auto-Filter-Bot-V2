@@ -176,7 +176,40 @@ async def showid(bot, update):
             parse_mode="md",
             quote=True
         )   
+@Client.on_message(filters.command(["Id"]), & (filters.private | filters.group))
+async def showinfo(client, message):
+    user = await client.get_users(int(id))
+    name = str(user.first_name + (user.last_name or ""))
+    username = user.username
+    cid = user.dc_id
+    if message.reply_to_message:
+            name = str(message.reply_to_message.from_user.first_name\
+                    + (message.reply_to_message.from_user.last_name or ""))
+            id = message.reply_to_message.from_user.id
+            username = message.reply_to_message.from_user.username
+            dcid = message.reply_to_message.from_user.dc_id
+        else:
+            name = str(message.from_user.first_name\
+                    + (message.from_user.last_name or ""))
+            id = message.from_user.id
+            username = message.from_user.username
+            dcid = message.from_user.dc_id
+    
+    if not str(username) == "None":
+        user_name = f"@{username}"
+    else:
+        user_name = "none"
 
+    await message.reply_text(
+        f"<b>Name</b> : {name}\n\n"
+        f"<b>User ID</b> : <code>{id}</code>\n\n"
+        f"<b>Username</b> : {user_name}\n\n"
+        f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
+        f"<b>DC ID</b> : {dcid}\n\n",
+        quote=True,
+        parse_mode="html"
+    )
+    
 @Client.on_callback_query(filters.regex(r"settings"), group=2)
 async def cb_settings(bot, update: CallbackQuery):
     """

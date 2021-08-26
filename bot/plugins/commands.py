@@ -171,7 +171,7 @@ async def help(bot, update):
         reply_to_message_id=update.message_id
     )
     
-@Client.on_message(filters.command(["id"]) & filters.private, group1)
+@Client.on_message(filters.command(["id"]) & filters.private, group=1)
 async def showid(bot, update):
     chat_type = update.chat.type
 

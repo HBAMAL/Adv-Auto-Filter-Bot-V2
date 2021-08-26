@@ -205,7 +205,7 @@ async def join_voice_chat(bot, update):
     
 @Client.on_message(filters.command(["play"]), group=2)
 async def play_track(bot, update):
-    if not message.reply_to_message or not message.reply_to_message.audio:
+    if not update.reply_to_message or not update.reply_to_message.audio:
         return
     input_filename = os.path.join(
         client.workdir, DEFAULT_DOWNLOAD_DIR,

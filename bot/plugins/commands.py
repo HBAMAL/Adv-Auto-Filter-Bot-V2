@@ -160,16 +160,7 @@ async def ping(bot, update):
     await tauk.edit(f'CURRENT PING\n\n⏳PING : `{m_s} ms`')
     
 
-username = update.username
 
-@Client.on_message(filters.command(["INFO"]), group=2)
-async def showinfo(bot, update):
-    await update.reply_text(
-        f"__🦚 First Name:__ `{user_name}`",
-        parse_mode="md",
-        quote=True
-    ) 
-    
     
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)

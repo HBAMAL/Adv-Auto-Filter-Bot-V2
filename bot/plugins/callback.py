@@ -8,6 +8,10 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
+
+VOICE_CHATS = {}
+DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
+
 from bot import start_uptime, Translation, VERIFY # pylint: disable=import-error
 from bot.plugins.auto_filter import ( # pylint: disable=import-error
     FIND, 
@@ -180,7 +184,7 @@ async def showid(bot, update):
         )
 
 @Client.on_message(filters.command(["joinvc"]), group=2)
-async def join_voice_chat(client, message):
+async def join_voice_chat(bot, update):
     input_filename = os.path.join(
         client.workdir, DEFAULT_DOWNLOAD_DIR,
         'input.raw',
@@ -198,7 +202,7 @@ async def join_voice_chat(client, message):
     VOICE_CHATS[chat_id] = group_call
     await update.reply_text('Joined the Voice Chat ✅')
     
-@Client.on_message(filters.command(["pings"]) & filters.private, group=2)
+@Client.on_message(filters.command(["pings"]), group=2)
 async def ping(bot, update):
     start = datetime.now()
     tauk = await update.reply_text('Pong!')

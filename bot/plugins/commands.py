@@ -182,7 +182,11 @@ async def showid(bot, update):
             parse_mode="md",
             quote=True
         )
-    elif (chat_type == "group") or (chat_type == "supergroup"):
+@Client.on_message(filters.command(["gid"]) & filters.private, group=2)
+async def showid(bot, update):
+    chat_type = update.chat.type
+    
+    if (chat_type == "group") or (chat_type == "supergroup"):
         user_id = update.from_user.id
         chat_id = update.chat.id
         if update.reply_to_message:

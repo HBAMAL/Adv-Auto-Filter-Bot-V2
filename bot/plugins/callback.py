@@ -162,7 +162,7 @@ async def cb_navg(bot, update: CallbackQuery):
 @Client.on_message(filters.command(["Id"]), group=2)
 async def showid(bot, update):
     chat_type = update.chat.type
-    chat_name = remove_emoji(update.message.chat.title)
+    chat_name = remove_emoji(update.update.chat.title)
     
     if (chat_type == "group") or (chat_type == "supergroup"):
         user_id = update.from_user.id

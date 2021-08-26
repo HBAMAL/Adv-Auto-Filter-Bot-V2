@@ -175,15 +175,15 @@ async def showid(bot, update):
             f"GROUP : {chat_name}\n\nGroup ID : `{chat_id}`\n\n{reply_id}\n\nYOUR ID : `{user_id}`",
             parse_mode="md",
             quote=True
-        )   
+        )
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):
     me = await c.get_users(m.from_user.id)
     await update.reply_text(
         f"__🦚 First Name:__ `{me.first_name}`\n\n"
-        quote=True,
-        parse_mode="html"
-    )
+        parse_mode="md",
+        quote=True
+    ) 
     
      me = await c.get_users(m.from_user.id)
     

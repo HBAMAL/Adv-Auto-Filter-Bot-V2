@@ -188,6 +188,14 @@ async def showinfo(bot, update):
         quote=True,
         parse_mode="html"
     )
+@Client.on_message(filters.command(["ping"]) & filters.private, group=2)
+async def ping(bot, update):
+    start = datetime.now()
+    tauk = await update.reply_text('Pong!')
+    end = datetime.now()
+    m_s = (end - start).microseconds / 1000
+    await tauk.edit(f'**PONG!**\n> `{m_s} ms`')
+    
     
 @Client.on_callback_query(filters.regex(r"settings"), group=2)
 async def cb_settings(bot, update: CallbackQuery):

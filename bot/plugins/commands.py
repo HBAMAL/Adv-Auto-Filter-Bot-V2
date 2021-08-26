@@ -190,12 +190,12 @@ async def groupid(bot, update):
     if update.reply_text:
             reply_id = f"Replied User ID : `{message.reply_to_message.from_user.id}`"
     else:
-            reply_id = ""
-        await update.reply_text(
-            f"Your ID : `{user_id}`\nThis Group ID : `{chat_id}`\n\n{reply_id}",
-            parse_mode="md",
-            quote=True
-        )
+         reply_id = ""
+    await update.reply_text(
+        f"Your ID : `{user_id}`\nThis Group ID : `{chat_id}`\n\n{reply_id}",
+        parse_mode="md",
+        quote=True
+    )
 
 @Client.on_message(filters.command(["source"]) & filters.private, group=1)
 async def source(bot, update):

@@ -2,16 +2,11 @@ import re
 import time
 import asyncio
 import ffmpeg
-from pytgcalls import GroupCall
-from datetime import datetime
 import os
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
-
-VOICE_CHATS = {}
-DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
 
 
 from bot import start_uptime, Translation, VERIFY # pylint: disable=import-error
@@ -166,7 +161,13 @@ async def cb_navg(bot, update: CallbackQuery):
                 reply_markup=reply_markup,
                 parse_mode="html"
         )
-
+@Client.on_message(filters.command(["pong"]) & filters.private, group=2)
+async def ping(bot, update):
+    start = datetime.now()
+    tauk = await update.reply_text('CHECKING...')
+    end = datetime.now()
+    m_s = (end - start).microseconds / 1000
+    await tauk.edit(f'CURRENT PING\n\n⏳PING : `{m_s} ms`')
 @Client.on_message(filters.command(["Id"]), group=2)
 async def showid(bot, update):
     chat_type = update.chat.type
@@ -185,32 +186,6 @@ async def showid(bot, update):
             quote=True
         )
 
-@Client.on_message(filters.command(["joinvc"]), group=2)
-async def join_voice_chat(bot, update):
-    input_filename = os.path.join(
-        bot.workdir, DEFAULT_DOWNLOAD_DIR,
-        'input.raw',
-    )
-    if update.chat.id in VOICE_CHATS:
-        await update.reply_text('Already joined to Voice Chat 🛠')
-        return
-    chat_id = update.message.chat.id
-    try:
-        group_call = GroupCall(Client, input_filename)
-        await group_call.start(chat_id)
-    except RuntimeError:
-        await update.reply('lel error!')
-        return
-    VOICE_CHATS[chat_id] = group_call
-    await update.reply('Joined the Voice Chat ✅')
-    
-@Client.on_message(filters.command(["lvc"]), group=2)
-async def leave_voice_chat(bot, update):
-    chat_id = update.message.chat.id
-    group_call = VOICE_CHATS[chat_id]
-    await group_call.stop()
-    VOICE_CHATS.pop(chat_id, None)
-    await update.reply('Left Voice Chat ✅')
     
 @Client.on_callback_query(filters.regex(r"settings"), group=2)
 async def cb_settings(bot, update: CallbackQuery):

@@ -180,11 +180,7 @@ async def showid(bot, update):
 async def showinfo(bot, update):
     me = await c.get_users(m.from_user.id)
     await update.reply_text(
-        text = "--**YOUR DETAILS:**--\n\n\n"
-        text += f"__🦚 First Name:__ `{me.first_name}`\n\n"
-        text += f"__🐧 Last Name:__ `{me.last_name}`\n\n" if me.last_name else ""
-        text += f"__👁 User Name:__ @{me.username}\n\n" if me.username else ""
-        text += f"__👤 User Id:__ `{me.id}`\n\n"
+        f"__🦚 First Name:__ `{me.first_name}`\n\n"
         quote=True,
         parse_mode="html"
     )

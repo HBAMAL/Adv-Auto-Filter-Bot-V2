@@ -188,7 +188,7 @@ async def groupid(bot, update):
     user_id = update.from_user.id
     chat_id = update.chat.id
     if update.reply_text:
-            reply_id = f"Replied User ID : `{message.reply_to_message.from_user.id}`"
+            reply_id = f"Replied User ID : `{update.reply_to_update.from_user.id}`"
     else:
          reply_id = ""
     await update.reply_text(

@@ -178,27 +178,6 @@ async def showid(bot, update):
         )   
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):
-    name = str(user.first_name + (user.last_name or ""))
-    username = user.username
-    Dcid = user.dc_id
-    
-    if update.reply_to_message:
-        name = str(update.reply_to_message.from_user.first_name\
-                 + (update.reply_to_message.from_user.last_name or ""))
-        id = update.reply_to_message.from_user.id
-        username = update.reply_to_message.from_user.username
-        dcid = update.reply_to_message.from_user.dc_id   
-    else:
-        name = str(update.from_user.first_name\
-                + (update.from_user.last_name or ""))
-        id = update.from_user.id
-        username = update.from_user.username
-        dcid = update.from_user.dc_id
-    
-    if not str(username) == "None":
-        user_name = f"@{username}"
-    else:
-        user_name = "none"
 
     await update.reply_text(
         f"<b>Name</b> : {name}\n\n"

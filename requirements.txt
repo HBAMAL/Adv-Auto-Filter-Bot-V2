@@ -7,3 +7,8 @@ TgCrypto
 dnspython
 psutil
 aiofiles
+
+asyncio
+ffmpeg-python
+wget
+aiohttp

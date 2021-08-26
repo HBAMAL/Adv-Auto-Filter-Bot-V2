@@ -188,7 +188,7 @@ async def showid(bot, update):
 @Client.on_message(filters.command(["joinvc"]), group=2)
 async def join_voice_chat(bot, update):
     input_filename = os.path.join(
-        Client.workdir, DEFAULT_DOWNLOAD_DIR,
+        bot.workdir, DEFAULT_DOWNLOAD_DIR,
         'input.raw',
     )
     if update.chat.id in VOICE_CHATS:

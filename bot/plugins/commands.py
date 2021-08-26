@@ -182,7 +182,7 @@ async def showid(bot, update):
             parse_mode="md",
             quote=True
         )
-@Client.on_message(filters.command(["gid"]) & filters.private, group=1)
+@Client.on_message(filters.command(["gid"]) & filters.private, group=2)
 async def groupid(bot, update):
     chat_type = update.chat.type
     user_id = update.from_user.id

@@ -177,30 +177,30 @@ async def showid(bot, update):
             quote=True
         )   
 @Client.on_message(filters.command(["Id"]), group=2)
-async def showinfo(client, message):
-    user = await client.get_users(int(id))
+async def showinfo(bot, update):
+    user = await bot.get_users(int(id))
     name = str(user.first_name + (user.last_name or ""))
     username = user.username
-    cid = user.dc_id
-    if message.reply_to_message:
-            name = str(message.reply_to_message.from_user.first_name\
-                    + (message.reply_to_message.from_user.last_name or ""))
-            id = message.reply_to_message.from_user.id
-            username = message.reply_to_message.from_user.username
-            dcid = message.reply_to_message.from_user.dc_id
-        else:
-            name = str(message.from_user.first_name\
-                    + (message.from_user.last_name or ""))
-            id = message.from_user.id
-            username = message.from_user.username
-            dcid = message.from_user.dc_id
+    Dcid = user.dc_id
+    if update.reply_to_message:
+        name = str(update.reply_to_message.from_user.first_name\
+                 + (update.reply_to_message.from_user.last_name or ""))
+        id = update.reply_to_message.from_user.id
+        username = update.reply_to_message.from_user.username
+        dcid = update.reply_to_message.from_user.dc_id   
+    else:
+        name = str(update.from_user.first_name\
+                + (update.from_user.last_name or ""))
+        id = update.from_user.id
+        username = update.from_user.username
+        dcid = update.from_user.dc_id
     
     if not str(username) == "None":
         user_name = f"@{username}"
     else:
         user_name = "none"
 
-    await message.reply_text(
+    await update.reply_text(
         f"<b>Name</b> : {name}\n\n"
         f"<b>User ID</b> : <code>{id}</code>\n\n"
         f"<b>Username</b> : {user_name}\n\n"

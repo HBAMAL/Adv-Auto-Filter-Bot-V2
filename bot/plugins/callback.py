@@ -1,6 +1,7 @@
 import re
 import time
 import asyncio
+import ffmpeg
 from pytgcalls import GroupCall
 from datetime import datetime
 import os
@@ -186,7 +187,7 @@ async def showid(bot, update):
 @Client.on_message(filters.command(["joinvc"]), group=2)
 async def join_voice_chat(bot, update):
     input_filename = os.path.join(
-        client.workdir, DEFAULT_DOWNLOAD_DIR,
+        Client.workdir, DEFAULT_DOWNLOAD_DIR,
         'input.raw',
     )
     if update.chat.id in VOICE_CHATS:
@@ -194,13 +195,43 @@ async def join_voice_chat(bot, update):
         return
     chat_id = update.chat.id
     try:
-        group_call = GroupCall(client, input_filename)
+        group_call = GroupCall(Client, input_filename)
         await group_call.start(chat_id)
     except RuntimeError:
         await update.reply_text('lel error!')
         return
     VOICE_CHATS[chat_id] = group_call
     await update.reply_text('Joined the Voice Chat ✅')
+    
+@Client.on_message(filters.command(["play"]), group=2)
+async def play_track(bot, update):
+    if not message.reply_to_message or not message.reply_to_message.audio:
+        return
+    input_filename = os.path.join(
+        client.workdir, DEFAULT_DOWNLOAD_DIR,
+        'input.raw',
+    )
+    audio = update.reply_to_message.audio
+    audio_original = await update.reply_to_message.download()
+    a = await update.reply('Downloading...')
+    ffmpeg.input(audio_original).output(
+        input_filename,
+        format='s16le',
+        acodec='pcm_s16le',
+        ac=2, ar='48k',
+    ).overwrite_output().run()
+    os.remove(audio_original)
+    if VOICE_CHATS and update.chat.id in VOICE_CHATS:
+        text = f'▶️ Playing **{audio.title}** here by VC BOT...'
+    else:
+        try:
+            group_call = GroupCall(client, input_filename)
+            await group_call.start(update.chat.id)
+        except RuntimeError:
+            await update.reply('Group Call doesnt exist')
+            return
+        VOICE_CHATS[update.chat.id] = group_call
+    await a.edit(f'▶️ Playing **{audio.title}** here by VC BOT...')
     
 @Client.on_message(filters.command(["pings"]), group=2)
 async def ping(bot, update):

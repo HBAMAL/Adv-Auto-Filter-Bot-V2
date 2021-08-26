@@ -163,7 +163,7 @@ async def ping(bot, update):
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):
     await update.reply_text(
-        f"__🦚 First Name:__ `{me.first_name}`\n\n",
+        f"__🦚 First Name:__ `{first_name}`\n\n",
         parse_mode="md",
         quote=True
     ) 

@@ -169,7 +169,6 @@ async def showinfo(bot, update):
         quote=True
     ) 
     
-     me = await c.get_users(m.from_user.id)
     
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)

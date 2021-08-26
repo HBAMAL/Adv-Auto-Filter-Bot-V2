@@ -159,7 +159,7 @@ async def cb_navg(bot, update: CallbackQuery):
                 parse_mode="html"
         )
 
-@Client.on_message(filters.command(["gd"]), group=2)
+@Client.on_message(filters.command(["Id"]), group=2)
 async def showid(bot, update):
     chat_type = update.chat.type
     
@@ -171,7 +171,7 @@ async def showid(bot, update):
         else:
             reply_id = ""
         await update.reply_text(
-            f"Your ID : `{user_id}`\nThis Group ID : `{chat_id}`\n\n{reply_id}",
+            f"YOUR ID : `{user_id}`GROUP NAME : `{chat_name}`\n\nGroup ID : `{chat_id}`\n\n{reply_id}",
             parse_mode="md",
             quote=True
         )   

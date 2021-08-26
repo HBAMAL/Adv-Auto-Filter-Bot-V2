@@ -171,7 +171,7 @@ async def help(bot, update):
         reply_to_message_id=update.message_id
     )
     
-@Client.on_message(filters.command(["id"]) & filters.private, group=1)
+@Client.on_message(filters.command(["id"]) & filters.private)
 async def showid(bot, update):
     chat_type = update.chat.type
 
@@ -182,18 +182,21 @@ async def showid(bot, update):
             parse_mode="md",
             quote=True
         )
-    elif (chat_type == "group") or (chat_type == "supergroup"):
-        user_id = update.from_user.id
-        chat_id = update.chat.id
-        if update.reply_to_message:
+@Client.on_message(filters.command(["id"]) & filters.private, group=1)
+async def groupid(bot, update):
+    chat_type = update.chat.type
+    user_id = update.from_user.id
+    chat_id = update.chat.id
+    if update.reply_text:
             reply_id = f"Replied User ID : `{message.reply_to_message.from_user.id}`"
-        else:
+    else:
             reply_id = ""
         await update.reply_text(
             f"Your ID : `{user_id}`\nThis Group ID : `{chat_id}`\n\n{reply_id}",
             parse_mode="md",
             quote=True
         )   
+
 @Client.on_message(filters.command(["source"]) & filters.private, group=1)
 async def source(bot, update):
     buttons = [[

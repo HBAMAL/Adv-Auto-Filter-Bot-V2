@@ -176,7 +176,7 @@ async def showid(bot, update):
             parse_mode="md",
             quote=True
         )   
-@Client.on_message(filters.command(["Id"]), & (filters.private | filters.group))
+@Client.on_message(filters.command(["Id"]), group=2)
 async def showinfo(client, message):
     user = await client.get_users(int(id))
     name = str(user.first_name + (user.last_name or ""))

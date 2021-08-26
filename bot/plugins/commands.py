@@ -160,7 +160,17 @@ async def ping(bot, update):
     m_s = (end - start).microseconds / 1000
     await tauk.edit(f'**Pong!**\n> `{m_s} ms`')
 
-
+@Client.on_message(filters.command(["INFO"]), group=2)
+async def showinfo(bot, update):
+    me = await c.get_users(m.from_user.id)
+    await update.reply_text(
+        f"__🦚 First Name:__ `{me.first_name}`\n\n",
+        parse_mode="md",
+        quote=True
+    ) 
+    
+     me = await c.get_users(m.from_user.id)
+    
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):

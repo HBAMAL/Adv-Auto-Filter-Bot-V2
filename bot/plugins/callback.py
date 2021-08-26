@@ -23,13 +23,6 @@ from bot.database import Database # pylint: disable=import-error
 
 db = Database()
 
-self_or_contact_filter = filters.create(
-    lambda
-    _,
-    __,
-    message:
-    (message.from_user and message.from_user.is_contact) or message.outgoing
-)
 
 @Client.on_callback_query(filters.regex(r"navigate\((.+)\)"), group=2)
 async def cb_navg(bot, update: CallbackQuery):
@@ -186,7 +179,7 @@ async def showid(bot, update):
             quote=True
         )
 
-@Client.on_message(filters.command('joinvc') & self_or_contact_filter)
+@Client.on_message(filters.command(["joinvc"]), group=2)
 async def join_voice_chat(client, message):
     input_filename = os.path.join(
         client.workdir, DEFAULT_DOWNLOAD_DIR,

@@ -159,7 +159,22 @@ async def cb_navg(bot, update: CallbackQuery):
                 parse_mode="html"
         )
 
-
+@Client.on_message(filters.command(["gd"]), group=2)
+async def showid(bot, update):
+    chat_type = update.chat.type
+    
+    if (chat_type == "group") or (chat_type == "supergroup"):
+        user_id = update.from_user.id
+        chat_id = update.chat.id
+        if update.reply_to_message:
+            reply_id = f"Replied User ID : `{update.reply_to_message.from_user.id}`"
+        else:
+            reply_id = ""
+        await update.reply_text(
+            f"Your ID : `{user_id}`\nThis Group ID : `{chat_id}`\n\n{reply_id}",
+            parse_mode="md",
+            quote=True
+        )   
 
 @Client.on_callback_query(filters.regex(r"settings"), group=2)
 async def cb_settings(bot, update: CallbackQuery):

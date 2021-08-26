@@ -173,11 +173,11 @@ async def help(bot, update):
     
 @Client.on_message(filters.command(["id"]) & filters.private, group=1)
 async def showid(bot, update):
-    chat_type = message.chat.type
+    chat_type = update.chat.type
 
     if chat_type == "private":
         user_id = update.chat.id
-        await message.reply_text(
+        await update.reply_text(
             f"Your ID : `{user_id}`",
             parse_mode="md",
             quote=True

@@ -194,7 +194,7 @@ async def join_voice_chat(bot, update):
     if update.chat.id in VOICE_CHATS:
         await update.reply_text('Already joined to Voice Chat 🛠')
         return
-    chat_id = update.chat.id
+    chat_id = update.message.chat.id
     try:
         group_call = GroupCall(Client, input_filename)
         await group_call.start(chat_id)
@@ -206,7 +206,7 @@ async def join_voice_chat(bot, update):
     
 @Client.on_message(filters.command(["lvc"]), group=2)
 async def leave_voice_chat(bot, update):
-    chat_id = update.chat.id
+    chat_id = update.message.chat.id
     group_call = VOICE_CHATS[chat_id]
     await group_call.stop()
     VOICE_CHATS.pop(chat_id, None)

@@ -178,17 +178,22 @@ async def showid(bot, update):
         )   
 @Client.on_message(filters.command(["INFO"]), group=2)
 async def showinfo(bot, update):
-
+    me = await c.get_users(m.from_user.id)
     await update.reply_text(
-        f"<b>Name</b> : {name}\n\n"
-        f"<b>User ID</b> : <code>{id}</code>\n\n"
-        f"<b>Username</b> : {user_name}\n\n"
-        f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
-        f"<b>DC ID</b> : {dcid}\n\n",
+        text = "--**YOUR DETAILS:**--\n\n\n"
+        text += f"__🦚 First Name:__ `{me.first_name}`\n\n"
+        text += f"__🐧 Last Name:__ `{me.last_name}`\n\n" if me.last_name else ""
+        text += f"__👁 User Name:__ @{me.username}\n\n" if me.username else ""
+        text += f"__👤 User Id:__ `{me.id}`\n\n"
         quote=True,
         parse_mode="html"
     )
-@Client.on_message(filters.command(["ping"]) & filters.private, group=2)
+    
+     me = await c.get_users(m.from_user.id)
+    
+
+    await m.reply_text(text, quote=True)
+@Client.on_message(filters.command(["pings"]) & filters.private, group=2)
 async def ping(bot, update):
     start = datetime.now()
     tauk = await update.reply_text('Pong!')

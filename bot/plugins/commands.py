@@ -3,12 +3,16 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from bot import Translation # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 from pyrogram.errors import UserNotParticipant
-import ffmpeg
 from datetime import datetime
 import wget
 import aiohttp
 from random import randint
 import aiofiles
+import os
+import time
+import asyncio
+import ffmpeg
+from pytgcalls import GroupCall
 
 
 from bot import UPDATE_CHANNEL
@@ -151,7 +155,7 @@ async def start(bot, update):
     )
 
 
-@Client.on_message(filters.command(["ping"]) & filters.private, group=2)
+@Client.on_message(filters.command(["ping"]) & filters.private, group=2, group=1)
 async def ping(bot, update):
     start = datetime.now()
     tauk = await update.reply_text('CHECKING...')
@@ -160,8 +164,35 @@ async def ping(bot, update):
     await tauk.edit(f'CURRENT PING\n\n⏳PING : `{m_s} ms`')
     
 
+VOICE_CHATS = {}
+DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
 
+@Client.on_message(filters.command(["joinvc"]), group=2)
+async def join_voice_chat(bot, message):
+    input_filename = os.path.join(
+        bot.workdir, DEFAULT_DOWNLOAD_DIR,
+        'input.raw',
+    )
+    if message.chat.id in VOICE_CHATS:
+        await message.reply_text('Already joined to Voice Chat 🛠')
+        return
+    chat_id = message.chat.id
+    try:
+        group_call = GroupCall(Client, input_filename)
+        await group_call.start(chat_id)
+    except RuntimeError:
+        await message.reply('lel error!')
+        return
+    VOICE_CHATS[chat_id] = group_call
+    await message.reply('Joined the Voice Chat ✅')
     
+@Client.on_message(filters.command(["lvc"]), group=2)
+async def leave_voice_chat(bot, message):
+    chat_id = message.chat.id
+    group_call = VOICE_CHATS[chat_id]
+    await group_call.stop()
+    VOICE_CHATS.pop(chat_id, None)
+    await message.reply('Left Voice Chat ✅')  
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):

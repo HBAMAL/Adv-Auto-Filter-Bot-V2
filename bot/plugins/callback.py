@@ -172,7 +172,7 @@ async def showid(bot, update):
         else:
             reply_id = ""
         await update.reply_text(
-            f"YOUR ID : `{user_id}`GROUP NAME : {chat_name}\n\nGroup ID : `{chat_id}`\n\n{reply_id}",
+            f"GROUP : {chat_name}\n\nGroup ID : `{chat_id}`\n\n{reply_id}\n\nYOUR ID : `{user_id}`",
             parse_mode="md",
             quote=True
         )   

@@ -7,7 +7,6 @@ TgCrypto
 dnspython
 psutil
 aiohttp
-ffmpeg-python
 
 youtube_search
 requests

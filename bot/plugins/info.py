@@ -1,7 +1,16 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
+BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
+        ],[
+        InlineKeyboardButton('❤️SUBSCRIBE❤️', url='https://youtu.be/e7wUj5uyRyo')
+        ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+        ]]
+    )
 
 @Client.on_message(filters.command(["info", "information"]), group=1)
 async def information(bot, update):
@@ -25,17 +34,17 @@ async def information(bot, update):
     except Exception as error:
         await update.reply_text(error)
 
-
 def user_info(user):
-    text = "--**User Details:**--\n"
-    text += f"\n**First Name:** `{user.first_name}`"
-    text += f"\n**Last Name:** `{user.last_name},`" if user.last_name else ""
-    text += f"\n**User Id:** `{user.id}`"
-    text += f"\n**Username:** @{user.username}" if user.username else ""
-    text += f"\n**User Link:** {user.mention}" if user.username else ""
+    text = "**YOUR DETAILS:**\n"
+    text += f"\n**FIRST NAME:** `{user.first_name}`"
+    text += f"\n**LAST NAME:** `{user.last_name}`" if user.last_name else ""
+    text += f"\n**YOUR ID:** `{user.id}`"
+    text += f"\n**YOUR USERNAME:** @{user.username}" if user.username else ""
+    text += f"\n**YOUR LINK :** {user.mention}" if user.username else ""
     text += f"\n**DC ID:** `{user.dc_id}`" if user.dc_id else ""
-    text += f"\n**Status:** {user.status}" if user.status else ""
-    text += f"\n\nJOIN TELSABOTS"
+    text += f"\n**STATUS:** {user.status}" if user.status else ""
+    text += f"\n\nBOT RESTARTED ON 09 September 2021 11:16  AM (INDIAN TIME ZONE)\n"
+    text += f"\n\nJOIN @TELSABOTS"
     return text
 
 
@@ -47,5 +56,5 @@ def chat_info(chat):
     text += f"\n**Type:** `{chat.type}`"
     text += f"\n**DC ID:** `{chat.dc_id}`"
     text += f"\n**Is Creator:** True" if chat.is_creator else ""
-    text += f"\n\nJOIN TELSABOTS"
+    text += f"\n\nJOIN @TELSABOTS"
     return text

@@ -17,7 +17,7 @@ BUTTONS = InlineKeyboardMarkup(
 async def response_json(bot, update):
     json = update.reply_to_message
     with BytesIO(str.encode(str(json))) as json_file:
-        json_file.name = "json.text"
+        json_file.name = "json.txt"
         await json.reply_document(
             document=json_file,
             reply_markup=BUTTONS,

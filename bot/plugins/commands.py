@@ -11,8 +11,7 @@ import aiofiles
 import os
 import time
 import asyncio
-import ffmpeg
-from pytgcalls import GroupCall
+
 
 
 from bot import UPDATE_CHANNEL

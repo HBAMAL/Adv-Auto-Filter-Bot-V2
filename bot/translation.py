@@ -14,7 +14,21 @@ you can only use me in HB group
 DEV <a href="https://t.me/ALLUADDICT">꧁༒☬𝓗𝓑☬༒꧂</a></b>"""    
     
     HELP_TEXT = """
-My Owner Can Only See This 😋
+    
+/start - TO CHECK WETHER I'm alive or not
+
+/about - MORE ABOUT ME
+
+/json  - REPLY TO ANY MESSAGE TO GET JSON OF THAT MSG
+
+/id - HIT THIS COMMAND TO GET YOUR TELEGRAM ID 
+
+/info - HIT THIS COMMAND TO GET SOME INFORMATION ABOUT YOU 
+
+/ping - HIT THIS COMMAND TO CHECK CURRENT PING STATUS
+
+/SOURCE - HIT THIS COMMAND FOR  MY SOURCE (REPO)
+
 """
     
     ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>

@@ -1,6 +1,17 @@
 from pyrogram import Client, filters
 from io import BytesIO
 
+BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
+        ],[
+        InlineKeyboardButton('❤️SUBSCRIBE❤️', url='https://youtu.be/e7wUj5uyRyo')
+        ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+        ]]
+    )
+
 @Client.on_message(filters.command(["json", "response"])  & filters.private, group=1)
 async def response_json(bot, update):
     json = update.reply_to_message

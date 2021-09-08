@@ -1,17 +1,17 @@
-import os 
-from pyrogram import Client, filters
-import asyncio
-from youtube_dl import YoutubeDL
+import os
 import requests
 import aiohttp
 import youtube_dl
-from datetime import datetime
-import time
-from youtube_search import YoutubeSearch
-from opencc import OpenCC
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent, Message
 
-@Client.on_message(filters.command('music'))
+from pyrogram import filters, Client
+from youtube_search import YoutubeSearch
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent
+
+def time_to_seconds(time):
+    stringt = str(time)
+    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
+
+@Client.on_message(filters.command('song'))
 def song(client, message):
 
     user_id = message.from_user.id 
@@ -22,7 +22,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('SEARCHING🧐')
+    m = message.reply('FINDING THE SONG🔎')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -40,28 +40,25 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "**NOTHING FOUND.\n\nCHECK SPELLING**"
+            "NOTHING FOUND.\n\nCHECK SPELLING."
         )
         print(str(e))
         return
-    m.edit("**📥DOWNLOADING📥**")
+    m.edit("📥DOWNLOADING📥")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f' **SONG🎧**: [{title[:35]}]({link})\n**DURATION⏰**: `{duration}`\n**VIEWS👀**: `{views}`\n**JOIN❤️** @TELSABOTS'
+        rep = f' **SONG🎧**: [{title[:35]}]({link})\n**DURATION⏰**: `{duration}`\n**VIEWS👀**: `{views}`\n\n**Share & Support Me:** [Share](https://t.me/share/url?url=Hi%20Friend%2C%0AAm%20Introducing%20a%20Powerful%0A%2A%2AZauTe%20Song%20Downloader%20Bot%2A%2A%20for%20Free.%0A%2A%2ABot%20Link%3A%2A%2A%20%40TELSA_MUSIC_BOT)'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         s = message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
         m.delete()
-        
-
-
     except Exception as e:
-        m.edit('**SOMETHING WENT WRONG**')
+        m.edit('SOMETHING WENT WRONG')
         print(e)
 
     try:

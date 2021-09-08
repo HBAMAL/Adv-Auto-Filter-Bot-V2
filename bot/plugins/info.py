@@ -36,12 +36,12 @@ async def information(bot, update):
 
 def user_info(user):
     text = "<b>YOUR DETAILS:</b>\n"
-    text += f"\n<b>FIRST NAME:</b> `{user.first_name}`"
-    text += f"\n<b>LAST NAME:</b> `{user.last_name}`" if user.last_name else ""
-    text += f"\n<b>YOUR ID:</b> `{user.id}`"
+    text += f"\n<b>FIRST NAME:</b> {user.first_name}"
+    text += f"\n<b>LAST NAME:</b> {user.last_name}" if user.last_name else ""
+    text += f"\n<b>YOUR ID:</b> {user.id}"
     text += f"\n<b>YOUR USERNAME:</b> @{user.username}" if user.username else ""
     text += f"\n<b>YOUR LINK :</b>{user.mention}" if user.username else ""
-    text += f"\n<b>DC ID:</b>`{user.dc_id}`" if user.dc_id else ""
+    text += f"\n<b>DC ID:</b>{user.dc_id}`" if user.dc_id else ""
     text += f"\n<b>STATUS:</b> {user.status}" if user.status else ""
     text += f"\n\n<b>BOT RESTARTED ON 09 September 2021 12:16  AM (INDIAN TIME ZONE)</b>\n"
     text += f"\n\n<b>JOIN @TELSABOTS</b>"
@@ -50,11 +50,11 @@ def user_info(user):
 
 def chat_info(chat):
     text = "<b>Chat Details</b>\n" 
-    text += f"\n<b>Title:</b>`{chat.title}`"
-    text += f"\n<b>Chat ID:</b> `{chat.id}`"
+    text += f"\n<b>Title:</b>{chat.title}"
+    text += f"\n<b>Chat ID:</b> {chat.id}"
     text += f"\n<b>Username:</b> @{chat.username}" if chat.username else ""
-    text += f"\n<b>Type:</b> `{chat.type}`"
-    text += f"\n<b>DC ID:</b> `{chat.dc_id}`"
+    text += f"\n<b>Type:</b> {chat.type}"
+    text += f"\n<b>DC ID:</b> {chat.dc_id}"
     text += f"\n<b>Is Creator:</b> True" if chat.is_creator else ""
     text += f"\n\n<b>JOIN @TELSABOTS</b>"
     return text

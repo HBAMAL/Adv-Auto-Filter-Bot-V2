@@ -1,7 +1,7 @@
 import re
 import time
 import asyncio
-import ffmpeg
+
 import os
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserNotParticipant

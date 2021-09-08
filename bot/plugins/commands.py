@@ -158,14 +158,13 @@ async def start(bot, update):
 @Client.on_message(filters.command(["ping"]) & filters.private, group=1)
 async def ping(bot, update):
     start = datetime.now()
-    tauk = await update.reply_text('CHECKING...')
+    tauk = await update.reply_text('...')
     end = datetime.now()
     m_s = (end - start).microseconds / 1000
-    await tauk.edit(f'CURRENT PING\n\n⏳PING : `{m_s} ms`')
+    await tauk.edit(f'⏳PING : {m_s} ms')
     
 
-VOICE_CHATS = {}
-DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
+
 
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)

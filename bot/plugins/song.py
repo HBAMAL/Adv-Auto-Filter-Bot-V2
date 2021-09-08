@@ -2,7 +2,6 @@ import os
 import requests
 import aiohttp
 import youtube_dl
-
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent
@@ -50,7 +49,7 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f' **SONG🎧**: [{title[:35]}]({link})\n**DURATION⏰**: `{duration}`\n**VIEWS👀**: `{views}`\n\n**Share & Support Me:** [Share](https://t.me/share/url?url=Hi%20Friend%2C%0AAm%20Introducing%20a%20Powerful%0A%2A%2AZauTe%20Song%20Downloader%20Bot%2A%2A%20for%20Free.%0A%2A%2ABot%20Link%3A%2A%2A%20%40TELSA_MUSIC_BOT)'
+        rep = f' **SONG🎧**: [{title[:35]}]({link})\n**DURATION⏰**: `{duration}`\n**VIEWS👀**: `{views}`\n\n\n**JOIN❤️** @TELSABOTS'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)

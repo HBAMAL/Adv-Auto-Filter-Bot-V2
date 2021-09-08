@@ -35,26 +35,26 @@ async def information(bot, update):
         await update.reply_text(error)
 
 def user_info(user):
-    text = "**YOUR DETAILS:**\n"
-    text += f"\n**FIRST NAME:** `{user.first_name}`"
-    text += f"\n**LAST NAME:** `{user.last_name}`" if user.last_name else ""
-    text += f"\n**YOUR ID:** `{user.id}`"
-    text += f"\n**YOUR USERNAME:** @{user.username}" if user.username else ""
-    text += f"\n**YOUR LINK :** {user.mention}" if user.username else ""
-    text += f"\n**DC ID:** `{user.dc_id}`" if user.dc_id else ""
-    text += f"\n**STATUS:** {user.status}" if user.status else ""
-    text += f"\n\nBOT RESTARTED ON 09 September 2021 11:16  AM (INDIAN TIME ZONE)\n"
-    text += f"\n\nJOIN @TELSABOTS"
+    text = "<b>YOUR DETAILS:</b>\n"
+    text += f"\n<b>FIRST NAME:</b> `{user.first_name}`"
+    text += f"\n<b>LAST NAME:</b> `{user.last_name}`" if user.last_name else ""
+    text += f"\n<b>YOUR ID:</b> `{user.id}`"
+    text += f"\n<b>YOUR USERNAME:</b> @{user.username}" if user.username else ""
+    text += f"\n<b>YOUR LINK :</b>{user.mention}" if user.username else ""
+    text += f"\n<b>DC ID:</b>`{user.dc_id}`" if user.dc_id else ""
+    text += f"\n<b>STATUS:</b> {user.status}" if user.status else ""
+    text += f"\n\n<b>BOT RESTARTED ON 09 September 2021 12:16  AM (INDIAN TIME ZONE)</b>\n"
+    text += f"\n\n<b>JOIN @TELSABOTS</b>"
     return text
 
 
 def chat_info(chat):
-    text = "--**Chat Details**--\n" 
-    text += f"\n**Title:** `{chat.title}`"
-    text += f"\n**Chat ID:** `{chat.id}`"
-    text += f"\n**Username:** @{chat.username}" if chat.username else ""
-    text += f"\n**Type:** `{chat.type}`"
-    text += f"\n**DC ID:** `{chat.dc_id}`"
-    text += f"\n**Is Creator:** True" if chat.is_creator else ""
-    text += f"\n\nJOIN @TELSABOTS"
+    text = "<b>Chat Details</b>\n" 
+    text += f"\n<b>Title:</b>`{chat.title}`"
+    text += f"\n<b>Chat ID:</b> `{chat.id}`"
+    text += f"\n<b>Username:</b> @{chat.username}" if chat.username else ""
+    text += f"\n<b>Type:</b> `{chat.type}`"
+    text += f"\n<b>DC ID:</b> `{chat.dc_id}`"
+    text += f"\n<b>Is Creator:</b> True" if chat.is_creator else ""
+    text += f"\n\n<b>JOIN @TELSABOTS</b>"
     return text

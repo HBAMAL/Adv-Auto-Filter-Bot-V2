@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 from io import BytesIO
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputTextMessageContent, Message
 
 BUTTONS = InlineKeyboardMarkup(
         [[
